@@ -1,0 +1,117 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+h1{
+    color:#2A5CAA
+  }
+  
+  p{
+    color:#2A5CAA;
+    font-size:36px;
+  }
+  header, section {
+    background-color: aqua;
+    border:5px #007BFF solid;
+    padding: 30px  50px;
+    margin: 30px
+  }
+/* 基础按钮样式 */
+.wrapper {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background: white;
+    box-shadow: 0 -2px 15px rgba(0,0,0,0.15);
+    z-index: 1000;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    flex-shrink: 0; /* 防止悬停挤压 */
+    touch-action:manipulatiion;
+    /*防止双击缩放*/user-select:none;}
+.button:focus {
+    outline: 2px solid #007BFF;
+    outline-offset: 2px;
+}
+
+/* 悬停扩展效果 */
+.button:hover {
+    width: 200px;
+    z-index: 1;
+}
+
+/* 图标样式 */
+.button .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    transition: background 0.3s;
+}
+
+/* 文字样式 */
+.button span {
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.button:hover span {
+    opacity: 1;
+}
+.button:active{
+  transform: scale(0.95);
+  transition: transform 0.2s;
+}
+.button.loading {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* 颜色控制 */
+.button:nth-child(1):hover .icon {
+    background: #1150ff; /* QQ蓝色 */
+}
+
+.button:nth-child(2):hover .icon {
+    background: #4298fa; /* Github蓝色 */
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .wrapper {
+        flex-direction: column;
+        bottom: 0;
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .button {
+        width: 100% !important;
+        margin: 5px 0;
+    }
+    
+    .button:hover {
+        width: 90% !important; /* 移动端限制扩展宽度 */
+    }
+}
